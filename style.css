@@ -1,0 +1,19 @@
+body {
+    background-color: whitesmoke;
+}
+
+.selectable {
+    cursor: pointer;
+    transition: all .2s ease;
+}
+.selectable:hover {
+    transform: scale(1.02);
+}
+
+
+
+.menu-item img{
+    height: 40vh;
+    width: 40vh;
+    object-fit: cover;
+}

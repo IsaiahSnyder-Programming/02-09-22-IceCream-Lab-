@@ -7,7 +7,7 @@
 
     <link href='https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css' rel='stylesheet' integrity='sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC' crossorigin='anonymous'>
     <link rel="stylesheet" href="style.css">
-    <title>Document</title>
+    <title>Ice Cream</title>
 
     <style>
       body.debug .container,
@@ -32,21 +32,81 @@
 
 <body class="debug">
     
-    <header>
-        header
+    <header class="container-fluid bg-dark text-center text-light p-2">
+        <h1>Ice Cream Parlor</h1>
     </header>
 
 
 
-    <body>
-        body
-    </body>
+    <main class="container-fluid">
+        <div class="row">
+            <!-- NOTE Main Col -->
+            <div class="col-12 col-md-6">
+                
+                <!-- NOTE Menu Title -->
+                <div class="row">
+                    <div class="col-12">
+                        Menu
+                    </div>
+                </div>
+
+                <!-- NOTE Cone Items -->
+                <div class="row text-dark" id="cones">
+                    
+                    <!-- NOTE Replaceable Card -->
+                    <div class="col-6 bg-primary selectable p-0 menu-item" onclick="addItem('cone')">
+                        <img class="img-fluid" src="//thiscatdoesnotexist.com//" alt="">
+                        <div class="d-flex justify-content-between p-2">
+                            <h6 class="mb-2">Cone</h6>
+                            <p class="mb-2">$20</p>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- NOTE Ice Cream Items -->
+                <div class="row text-dark" id="iceCreams">
+                    
+                    <!-- NOTE Replaceable Card -->
+                    <div class="col-6 bg-primary selectable p-0 menu-item" onclick="addItem('ice-cream')">
+                        <img class="img-fluid" src="//thiscatdoesnotexist.com//" alt="">
+                        <div class="d-flex justify-content-between p-2">
+                            <h6 class="mb-2">Ice Cream</h6>
+                            <p class="mb-2">$20</p>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- NOTE Toppings -->
+                <div class="row text-dark" id="toppings">
+                    
+                    <!-- NOTE Replaceable Card -->
+                    <div class="col-6 bg-primary selectable p-0 menu-item" onclick="addItem('topping')">
+                        <img class="img-fluid" src="//thiscatdoesnotexist.com//" alt="">
+                        <div class="d-flex justify-content-between p-2">
+                            <h6 class="mb-2">Toppings</h6>
+                            <p class="mb-2">$20</p>
+                        </div>
+                    </div>
+
+                </div>
+
+
+            </div>
+
+            <!-- NOTE Main Col -->
+            <div class="col-12 col-md-6">
+
+            </div>
+        </div>
+    </main>
 
 
 
-    <footer>
-        footer
-    </footer>
+    <!-- <footer class="container-fluid bg-dark text-center text-light p-2">
+        <h6>Made With ❤</h6>
+    </footer> -->
 
 </body>
 
