@@ -84,6 +84,9 @@ let toppings = [
     },
 ]
 
+let cart = []
+let total = 0
+
 
 let orders = [
     {
@@ -93,6 +96,7 @@ let orders = [
         topping: toppings[0]
     }
 ]
+
 
 
 
@@ -153,35 +157,64 @@ function drawToppings() {
 
 
 function drawCart() {
-    console.log('drawCart Works');
+    let template = ''
+    
+    for (let i = 0; i < cart.length; i++) {
+        const item = cart[i];
+        template += `
+        <div class="col-12">
+            <div class="d-flex justify-content-between p-1">
+                <h2>${item.name}</h2>
+                <h2>$${item.price}</h2>
+            </div>
+        </div>
+        `
+    }
+    document.getElementById('cart').innerHTML = template
 }
 
 
-
-function addCone(cone) {
-    console.log('addCone Works');
     // TODO pass param to identify the cone
     // find the correct cone by the param
     // set the currentOrder.cone to found cone
-    currentOrder.cone = 'test'
+    // currentOrder.cone = 'test'
     // validate the order
+
+function addCone(findCone) {
+    console.log('addCone Works');
+    
+    let itemToAdd = cones.find(ci => ci.id == findCone)
+    cart.push(itemToAdd)
+
+    drawCart()
 }
-function addIceCream() {
+
+function addIceCream(findIceCream) {
     console.log('addIceCream Works');
-    // validate the order
+
+    let itemToAdd = iceCreams.find(ci => ci.id == findIceCream)
+    cart.push(itemToAdd)
+
+    drawCart()
+    
 }
-function addTopping() {
+
+function addTopping(findTopping) {
     console.log('addTopping Works');
-    // validate the order
+    
+    let itemToAdd = toppings.find(ci => ci.id == findTopping)
+    cart.push(itemToAdd)
+
+    drawCart()
 }
 
 
 function validateOrder() {
+
 }
 
 
 
 
 drawCones()
-drawIceCreams()
-drawToppings()
+drawCart()

@@ -40,7 +40,7 @@
 
     <main class="container-fluid">
         <div class="row">
-            <!-- NOTE Main Col -->
+            <!-- NOTE Left Col -->
             <div class="col-12 col-md-6">
                 
                 <!-- NOTE Menu Title -->
@@ -95,8 +95,38 @@
 
             </div>
 
-            <!-- NOTE Main Col -->
+            <!-- NOTE Right Col -->
             <div class="col-12 col-md-6">
+
+                <!-- NOTE Your Ice Cream Title -->
+                <div class="row">
+                    <div class="col-12 bg-dark text-light text-center p-2">
+                        <h2>Your Ice Cream</h2>
+                    </div>
+                </div>
+
+                <!-- NOTE Cart Items -->
+                <div class="row text-light bg-dark" id="cart">
+
+                    <!-- NOTE Cart Item Template -->
+                    <div class="col-12">
+                        <div class="d-flex justify-content-between p-1">
+                            <h2>Ice Cream</h2>
+                            <h2>$20</h2>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- NOTE Checkout Button & Stuff -->
+                <div class="row bg-warning text-dark">
+                    <div class="col-12">
+                        <h3><b>Total: $<span id="total">0.00</span></b></h3>
+                    </div>
+                    <button id="checkout" class="btn btn-primary" onclick="checkout()">Checkout</button>
+                </div>
+
+
 
             </div>
         </div>
@@ -104,9 +134,9 @@
 
 
 
-    <!-- <footer class="container-fluid bg-dark text-center text-light p-2">
+    <footer class="container-fluid bg-dark text-center text-light p-2">
         <h6>Made With ❤</h6>
-    </footer> -->
+    </footer>
 
 </body>
 
