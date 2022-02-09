@@ -1,5 +1,8 @@
 console.log('app.js Working');
 
+let currentOrder = {}
+
+
 let cones = [
     {
         id: 1,
@@ -82,14 +85,24 @@ let toppings = [
 ]
 
 
+let orders = [
+    {
+        name: 'Jake',
+        cone: cones[0],
+        iceCream: iceCreams[3],
+        topping: toppings[0]
+    }
+]
 
-function drawMenu(cones) {
+
+
+function drawCones() {
     let template = ''
     
     for (let i = 0; i < cones.length; i++) {
         const item = cones[i];
         template += `
-        <div class="col-6 bg-light selectable p-0 menu-item" onclick="addItem(${item.id})">
+        <div class="col-6 bg-light selectable p-0 menu-item" onclick="addCone(${item.id})">
             <img class="img-fluid" src="${item.image}" alt="">
             <div class="d-flex justify-content-between p-2">
                 <h6 class="mb-2">${item.name}</h6>
@@ -101,13 +114,13 @@ function drawMenu(cones) {
     document.getElementById('cones').innerHTML = template
 }
 
-function drawMenu(iceCreams) {
+function drawIceCreams() {
     let template = ''
     
     for (let i = 0; i < iceCreams.length; i++) {
         const item = iceCreams[i];
         template += `
-        <div class="col-6 bg-light selectable p-0 menu-item" onclick="addItem(${item.id})">
+        <div class="col-6 bg-light selectable p-0 menu-item" onclick="addIceCream(${item.id})">
             <img class="img-fluid" src="${item.image}" alt="">
             <div class="d-flex justify-content-between p-2">
                 <h6 class="mb-2">${item.name}</h6>
@@ -119,13 +132,13 @@ function drawMenu(iceCreams) {
     document.getElementById('iceCreams').innerHTML = template
 }
 
-function drawMenu(toppings) {
+function drawToppings() {
     let template = ''
     
     for (let i = 0; i < toppings.length; i++) {
         const item = toppings[i];
         template += `
-        <div class="col-6 bg-light selectable p-0 menu-item" onclick="addItem(${item.id})">
+        <div class="col-6 bg-light selectable p-0 menu-item" onclick="addTopping(${item.id})">
             <img class="img-fluid" src="${item.image}" alt="">
             <div class="d-flex justify-content-between p-2">
                 <h6 class="mb-2">${item.name}</h6>
@@ -139,10 +152,36 @@ function drawMenu(toppings) {
 
 
 
-
-
-function addItem() {
-    console.log("addItem Works");
+function drawCart() {
+    console.log('drawCart Works');
 }
 
-drawMenu()
+
+
+function addCone(cone) {
+    console.log('addCone Works');
+    // TODO pass param to identify the cone
+    // find the correct cone by the param
+    // set the currentOrder.cone to found cone
+    currentOrder.cone = 'test'
+    // validate the order
+}
+function addIceCream() {
+    console.log('addIceCream Works');
+    // validate the order
+}
+function addTopping() {
+    console.log('addTopping Works');
+    // validate the order
+}
+
+
+function validateOrder() {
+}
+
+
+
+
+drawCones()
+drawIceCreams()
+drawToppings()
