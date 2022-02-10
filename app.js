@@ -6,27 +6,27 @@ let currentOrder = {}
 let cones = [
     {
         id: 1,
-        name: 'Waffle',
+        name: 'Bowl',
         price: 1,
-        image: '//thiscatdoesnotexist.com/',
+        image: 'https://www.cleaneatingmag.com/wp-content/uploads/2020/07/71ajvdxiccl_ac_sl1500_-1.jpg',
     },
     {
         id: 2,
-        name: 'Plate',
-        price: 2,
-        image: '//thiscatdoesnotexist.com/',
+        name: 'Waffle Bowl',
+        price: 1,
+        image: 'https://m.media-amazon.com/images/I/81etZfGXQXS._SX679_PIbundle-60,TopRight,0,0_SX679SY476SH20_.jpg',
     },
     {
         id: 3,
-        name: 'Lite',
-        price: 3,
-        image: '//thiscatdoesnotexist.com/',
+        name: 'Waffle Cone',
+        price: 1,
+        image: 'https://m.media-amazon.com/images/I/71AoVY1mHwL._SX425_PIbundle-216,TopRight,0,0_AA425SH20_.jpg',
     },
     {
         id: 4,
         name: 'Kids',
-        price: 4,
-        image: '//thiscatdoesnotexist.com/',
+        price: 1,
+        image: 'https://www.webstaurantstore.com/images/products/large/4756/1914043.jpg',
     },
 ]
 
@@ -34,26 +34,26 @@ let iceCreams = [
     {
         id: 1,
         name: 'Vanilla',
-        price: 1,
-        image: '//thiscatdoesnotexist.com/',
+        price: 5,
+        image: 'https://static.toiimg.com/thumb/63971154.cms?width=573&height=430',
     },
     {
         id: 2,
         name: 'Chocolate',
-        price: 1,
-        image: '//thiscatdoesnotexist.com/',
+        price: 5,
+        image: 'https://www.cuisinevault.com/wp-content/uploads/2020/04/Chocolate-ice-cream.jpg',
     },
     {
         id: 3,
         name: 'Strawberry',
-        price: 1,
-        image: '//thiscatdoesnotexist.com/',
+        price: 5,
+        image: 'https://beamingbaker.com/wp-content/uploads/2020/06/IGT1-Best-Strawberry-Vegan-Ice-Cream-Dairy-Free-1.jpg',
     },
     {
         id: 4,
         name: 'Pistacio',
-        price: 1,
-        image: '//thiscatdoesnotexist.com/',
+        price: 6,
+        image: 'https://www.simplyscratch.com/wp-content/uploads/2020/03/No-Churn-Pistachio-Ice-Cream-l-SimplyScratch.com-nochurn-icecream-pistachio-nut-easy-dessert-29-scaled.jpg',
     },
 ]
 
@@ -88,17 +88,6 @@ let cart = []
 let total = 0
 
 
-let orders = [
-    {
-        name: 'Jake',
-        cone: cones[0],
-        iceCream: iceCreams[3],
-        topping: toppings[0]
-    }
-]
-
-
-
 
 function drawCones() {
     let template = ''
@@ -115,7 +104,7 @@ function drawCones() {
         </div>
         `
     }
-    document.getElementById('cones').innerHTML = template
+    document.getElementById('options').innerHTML = template
 }
 
 function drawIceCreams() {
@@ -133,7 +122,10 @@ function drawIceCreams() {
         </div>
         `
     }
-    document.getElementById('iceCreams').innerHTML = template
+
+    template += `<button id="iceCreamButton" class="btn btn-dark w-100 text-light p-2" onclick="skipIceCream()">Next</button>`
+    
+    document.getElementById('options').innerHTML = template
 }
 
 function drawToppings() {
@@ -151,10 +143,8 @@ function drawToppings() {
         </div>
         `
     }
-    document.getElementById('toppings').innerHTML = template
+    document.getElementById('options').innerHTML = template
 }
-
-
 
 function drawCart() {
     let template = ''
@@ -171,14 +161,11 @@ function drawCart() {
         `
     }
     document.getElementById('cart').innerHTML = template
+    document.getElementById('total').innerText = total.toFixed(2)
+    document.getElementById('checkout').disabled = total <= 1
 }
 
 
-    // TODO pass param to identify the cone
-    // find the correct cone by the param
-    // set the currentOrder.cone to found cone
-    // currentOrder.cone = 'test'
-    // validate the order
 
 function addCone(findCone) {
     console.log('addCone Works');
@@ -186,7 +173,11 @@ function addCone(findCone) {
     let itemToAdd = cones.find(ci => ci.id == findCone)
     cart.push(itemToAdd)
 
+    
+    total += itemToAdd.price
+    drawIceCreams()
     drawCart()
+    
 }
 
 function addIceCream(findIceCream) {
@@ -195,8 +186,12 @@ function addIceCream(findIceCream) {
     let itemToAdd = iceCreams.find(ci => ci.id == findIceCream)
     cart.push(itemToAdd)
 
-    drawCart()
     
+    total += itemToAdd.price
+    drawCart()
+}
+function skipIceCream() {
+    drawToppings()
 }
 
 function addTopping(findTopping) {
@@ -205,14 +200,20 @@ function addTopping(findTopping) {
     let itemToAdd = toppings.find(ci => ci.id == findTopping)
     cart.push(itemToAdd)
 
+    
+    total += itemToAdd.price
     drawCart()
 }
 
 
-function validateOrder() {
 
+function checkout() {
+    alert('Thank you!!')
+    cart = []
+    total = 0
+    drawCones()
+    drawCart()
 }
-
 
 
 
